@@ -19,7 +19,14 @@ accounts = [{
     balance: 5000.00,
 }]
 
-transactions = [{
+transactions = [
+{
+    description: 'Bestbuy*500_Gift',
+    amount: -3600,
+    date: new Date(2021, 5, 21),
+    account: 0
+},
+{
     description: 'APL*ITUNES.COM/BILL',
     amount: -50,
     date: new Date(2019, 10, 7),
@@ -34,7 +41,7 @@ transactions = [{
 {
     description: 'Candy Crush',
     amount: -13.37,
-    date: new Date(),
+    date: new Date(2019, 10, 3),
     account: 0
 },
 {

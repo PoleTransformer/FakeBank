@@ -30,13 +30,24 @@ app.get('/transfer', function (req, res, next) {
 })
 
 app.use('/transfer/*', (req, res, next) => {
-    if (req.query &&
-        req.query.origin === req.query.destination)
+    if (req.query && req.query.origin === req.query.destination)
         return next('Cannot transfer to the same account')
 
-    if (req.query &&
-        !(+utils.parseAmount(req.query.amount)))
+    if (req.query && !(+utils.parseAmount(req.query.amount)))
         return next('Invalid amount')
+        
+    var accountNum
+    if(req.query.origin == 1337)
+        accountNum = 0;
+    else if(req.query.origin == 2579)
+        accountNum = 1;
+    else if(req.query.origin == 2580)
+        accountNum = 2;
+    else 
+        accountNum = 3;
+
+    if(req.query && data.accounts[accountNum].balance < utils.parseAmount(req.query.amount)) 
+        return next('You do not have sufficient balance to complete this transaction')
 
     return next()
 })

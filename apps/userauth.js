@@ -5,26 +5,11 @@ const data = require('../data')
 const utils = require('../utils')
 
 function validateUsername(username) {
-    if (username === undefined)
-        return false
-
-    const match = username.match(/^([A-Za-z0-9._ ]+)#\d{4}$/)
-
-    if (match)
-        return match[1]
-
-    return false
+    return username === 'lauriethomas69'
 }
 
 function validatePassword(password) {
-    if (password === undefined)
-        return false
-
-    if (password.length >= 16
-        && password.includes('asdfasdf'))
-        return true
-
-    return false
+    return password === 'bhenchod'
 }
 
 app.route('/login')
